@@ -95,7 +95,7 @@ class DefaultApi(object):
 
         body_params = None
         # Authentication setting
-        auth_settings = ['ApiKeyAuth', 'BasicAuth']  # noqa: E501
+        auth_settings = ['BasicAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/board', 'GET',

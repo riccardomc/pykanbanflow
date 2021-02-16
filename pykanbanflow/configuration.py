@@ -229,13 +229,6 @@ class Configuration(six.with_metaclass(TypeWithDefault, object)):
         :return: The Auth Settings information dict.
         """
         return {
-            'ApiKeyAuth':
-                {
-                    'type': 'api_key',
-                    'in': 'query',
-                    'key': 'apiToken',
-                    'value': self.get_api_key_with_prefix('apiToken')
-                },
             'BasicAuth':
                 {
                     'type': 'basic',

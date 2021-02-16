@@ -50,12 +50,7 @@ import time
 import pykanbanflow
 from pykanbanflow.rest import ApiException
 from pprint import pprint
-
-# Configure API key authorization: ApiKeyAuth
-configuration = pykanbanflow.Configuration()
-configuration.api_key['apiToken'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['apiToken'] = 'Bearer'# Configure HTTP basic authorization: BasicAuth
+# Configure HTTP basic authorization: BasicAuth
 configuration = pykanbanflow.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
@@ -87,12 +82,6 @@ Class | Method | HTTP request | Description
 
 ## Documentation For Authorization
 
-
-## ApiKeyAuth
-
-- **Type**: API key
-- **API key parameter name**: apiToken
-- **Location**: URL query string
 
 ## BasicAuth
 

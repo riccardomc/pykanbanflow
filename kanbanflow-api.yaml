@@ -14,7 +14,6 @@ servers:
 
 security:
   - BasicAuth: []
-  - ApiKeyAuth: []
 
 paths:
   /board:
@@ -35,10 +34,6 @@ components:
     BasicAuth:
       type: http
       scheme: basic
-    ApiKeyAuth:
-      type: apiKey
-      in: parameter
-      name: apiToken
 
   schemas:
     Column:

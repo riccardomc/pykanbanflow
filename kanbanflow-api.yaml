@@ -38,6 +38,19 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/Task"
+  /tasks:
+    get:
+      summary: Return all tasks on a board
+      operationId: getAllTasks
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/TasksByColumn"
 
 components:
 
@@ -94,6 +107,7 @@ components:
           type: array
           items:
             $ref: "#/components/schemas/Color"
+
     Task:
       type: object
       required:
@@ -107,3 +121,42 @@ components:
           type: string
         columnId:
           type: string
+        swimlaneId:
+          type: string
+        position:
+          type: integer
+        description:
+          type: string
+        color:
+          type: string
+        number:
+          type: string
+        responsibleUserId:
+          type: string
+        totalSecondsSpent:
+          type: integer
+        totalSecondsEstimate:
+          type: integer
+        pointsEstimate:
+          type: float
+        groupingDate:
+          type: string
+
+    TasksByColumn:
+      type: object
+      required:
+        - columnId
+        - columnName
+      properties:
+        columnId:
+          type: string
+        columnName:
+          type: string
+        swimlaneId:
+          type: string
+        swimlaneName:
+          type: string
+        tasks:
+          type: array
+          items:
+            $ref: "#/components/schemas/Task"

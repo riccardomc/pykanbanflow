@@ -19,3 +19,4 @@ from pykanbanflow.models.color import Color
 from pykanbanflow.models.column import Column
 from pykanbanflow.models.swimlane import Swimlane
 from pykanbanflow.models.task import Task
+from pykanbanflow.models.tasks_by_column import TasksByColumn

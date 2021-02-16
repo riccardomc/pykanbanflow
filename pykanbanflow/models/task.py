@@ -30,24 +30,74 @@ class Task(object):
     swagger_types = {
         'id': 'str',
         'name': 'str',
-        'column_id': 'str'
+        'column_id': 'str',
+        'swimlane_id': 'str',
+        'position': 'int',
+        'description': 'str',
+        'color': 'str',
+        'number': 'str',
+        'responsible_user_id': 'str',
+        'total_seconds_spent': 'int',
+        'total_seconds_estimate': 'int',
+        'points_estimate': 'float',
+        'grouping_date': 'str'
     }
 
     attribute_map = {
         'id': '_id',
         'name': 'name',
-        'column_id': 'columnId'
+        'column_id': 'columnId',
+        'swimlane_id': 'swimlaneId',
+        'position': 'position',
+        'description': 'description',
+        'color': 'color',
+        'number': 'number',
+        'responsible_user_id': 'responsibleUserId',
+        'total_seconds_spent': 'totalSecondsSpent',
+        'total_seconds_estimate': 'totalSecondsEstimate',
+        'points_estimate': 'pointsEstimate',
+        'grouping_date': 'groupingDate'
     }
 
-    def __init__(self, id=None, name=None, column_id=None):  # noqa: E501
+    def __init__(self, id=None, name=None, column_id=None, swimlane_id=None, position=None, description=None, color=None, number=None, responsible_user_id=None, total_seconds_spent=None, total_seconds_estimate=None, points_estimate=None, grouping_date=None):  # noqa: E501
         """Task - a model defined in Swagger"""  # noqa: E501
         self._id = None
         self._name = None
         self._column_id = None
+        self._swimlane_id = None
+        self._position = None
+        self._description = None
+        self._color = None
+        self._number = None
+        self._responsible_user_id = None
+        self._total_seconds_spent = None
+        self._total_seconds_estimate = None
+        self._points_estimate = None
+        self._grouping_date = None
         self.discriminator = None
         self.id = id
         self.name = name
         self.column_id = column_id
+        if swimlane_id is not None:
+            self.swimlane_id = swimlane_id
+        if position is not None:
+            self.position = position
+        if description is not None:
+            self.description = description
+        if color is not None:
+            self.color = color
+        if number is not None:
+            self.number = number
+        if responsible_user_id is not None:
+            self.responsible_user_id = responsible_user_id
+        if total_seconds_spent is not None:
+            self.total_seconds_spent = total_seconds_spent
+        if total_seconds_estimate is not None:
+            self.total_seconds_estimate = total_seconds_estimate
+        if points_estimate is not None:
+            self.points_estimate = points_estimate
+        if grouping_date is not None:
+            self.grouping_date = grouping_date
 
     @property
     def id(self):
@@ -117,6 +167,216 @@ class Task(object):
             raise ValueError("Invalid value for `column_id`, must not be `None`")  # noqa: E501
 
         self._column_id = column_id
+
+    @property
+    def swimlane_id(self):
+        """Gets the swimlane_id of this Task.  # noqa: E501
+
+
+        :return: The swimlane_id of this Task.  # noqa: E501
+        :rtype: str
+        """
+        return self._swimlane_id
+
+    @swimlane_id.setter
+    def swimlane_id(self, swimlane_id):
+        """Sets the swimlane_id of this Task.
+
+
+        :param swimlane_id: The swimlane_id of this Task.  # noqa: E501
+        :type: str
+        """
+
+        self._swimlane_id = swimlane_id
+
+    @property
+    def position(self):
+        """Gets the position of this Task.  # noqa: E501
+
+
+        :return: The position of this Task.  # noqa: E501
+        :rtype: int
+        """
+        return self._position
+
+    @position.setter
+    def position(self, position):
+        """Sets the position of this Task.
+
+
+        :param position: The position of this Task.  # noqa: E501
+        :type: int
+        """
+
+        self._position = position
+
+    @property
+    def description(self):
+        """Gets the description of this Task.  # noqa: E501
+
+
+        :return: The description of this Task.  # noqa: E501
+        :rtype: str
+        """
+        return self._description
+
+    @description.setter
+    def description(self, description):
+        """Sets the description of this Task.
+
+
+        :param description: The description of this Task.  # noqa: E501
+        :type: str
+        """
+
+        self._description = description
+
+    @property
+    def color(self):
+        """Gets the color of this Task.  # noqa: E501
+
+
+        :return: The color of this Task.  # noqa: E501
+        :rtype: str
+        """
+        return self._color
+
+    @color.setter
+    def color(self, color):
+        """Sets the color of this Task.
+
+
+        :param color: The color of this Task.  # noqa: E501
+        :type: str
+        """
+
+        self._color = color
+
+    @property
+    def number(self):
+        """Gets the number of this Task.  # noqa: E501
+
+
+        :return: The number of this Task.  # noqa: E501
+        :rtype: str
+        """
+        return self._number
+
+    @number.setter
+    def number(self, number):
+        """Sets the number of this Task.
+
+
+        :param number: The number of this Task.  # noqa: E501
+        :type: str
+        """
+
+        self._number = number
+
+    @property
+    def responsible_user_id(self):
+        """Gets the responsible_user_id of this Task.  # noqa: E501
+
+
+        :return: The responsible_user_id of this Task.  # noqa: E501
+        :rtype: str
+        """
+        return self._responsible_user_id
+
+    @responsible_user_id.setter
+    def responsible_user_id(self, responsible_user_id):
+        """Sets the responsible_user_id of this Task.
+
+
+        :param responsible_user_id: The responsible_user_id of this Task.  # noqa: E501
+        :type: str
+        """
+
+        self._responsible_user_id = responsible_user_id
+
+    @property
+    def total_seconds_spent(self):
+        """Gets the total_seconds_spent of this Task.  # noqa: E501
+
+
+        :return: The total_seconds_spent of this Task.  # noqa: E501
+        :rtype: int
+        """
+        return self._total_seconds_spent
+
+    @total_seconds_spent.setter
+    def total_seconds_spent(self, total_seconds_spent):
+        """Sets the total_seconds_spent of this Task.
+
+
+        :param total_seconds_spent: The total_seconds_spent of this Task.  # noqa: E501
+        :type: int
+        """
+
+        self._total_seconds_spent = total_seconds_spent
+
+    @property
+    def total_seconds_estimate(self):
+        """Gets the total_seconds_estimate of this Task.  # noqa: E501
+
+
+        :return: The total_seconds_estimate of this Task.  # noqa: E501
+        :rtype: int
+        """
+        return self._total_seconds_estimate
+
+    @total_seconds_estimate.setter
+    def total_seconds_estimate(self, total_seconds_estimate):
+        """Sets the total_seconds_estimate of this Task.
+
+
+        :param total_seconds_estimate: The total_seconds_estimate of this Task.  # noqa: E501
+        :type: int
+        """
+
+        self._total_seconds_estimate = total_seconds_estimate
+
+    @property
+    def points_estimate(self):
+        """Gets the points_estimate of this Task.  # noqa: E501
+
+
+        :return: The points_estimate of this Task.  # noqa: E501
+        :rtype: float
+        """
+        return self._points_estimate
+
+    @points_estimate.setter
+    def points_estimate(self, points_estimate):
+        """Sets the points_estimate of this Task.
+
+
+        :param points_estimate: The points_estimate of this Task.  # noqa: E501
+        :type: float
+        """
+
+        self._points_estimate = points_estimate
+
+    @property
+    def grouping_date(self):
+        """Gets the grouping_date of this Task.  # noqa: E501
+
+
+        :return: The grouping_date of this Task.  # noqa: E501
+        :rtype: str
+        """
+        return self._grouping_date
+
+    @grouping_date.setter
+    def grouping_date(self, grouping_date):
+        """Sets the grouping_date of this Task.
+
+
+        :param grouping_date: The grouping_date of this Task.  # noqa: E501
+        :type: str
+        """
+
+        self._grouping_date = grouping_date
 
     def to_dict(self):
         """Returns the model properties as a dict"""

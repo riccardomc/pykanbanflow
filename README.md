@@ -59,6 +59,20 @@ configuration.password = 'YOUR_PASSWORD'
 api_instance = pykanbanflow.DefaultApi(pykanbanflow.ApiClient(configuration))
 
 try:
+    # Return all tasks on a board
+    api_response = api_instance.get_all_tasks()
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling DefaultApi->get_all_tasks: %s\n" % e)
+# Configure HTTP basic authorization: BasicAuth
+configuration = pykanbanflow.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
+
+# create an instance of the API class
+api_instance = pykanbanflow.DefaultApi(pykanbanflow.ApiClient(configuration))
+
+try:
     # Returns the structure of the board belonging to the token.
     api_response = api_instance.get_board()
     pprint(api_response)
@@ -86,6 +100,7 @@ All URIs are relative to *https://kanbanflow.com/api/v1*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*DefaultApi* | [**get_all_tasks**](docs/DefaultApi.md#get_all_tasks) | **GET** /tasks | Return all tasks on a board
 *DefaultApi* | [**get_board**](docs/DefaultApi.md#get_board) | **GET** /board | Returns the structure of the board belonging to the token.
 *DefaultApi* | [**get_task_by_id**](docs/DefaultApi.md#get_task_by_id) | **GET** /tasks/{taskId} | Returns a single task by ID
 
@@ -96,6 +111,7 @@ Class | Method | HTTP request | Description
  - [Column](docs/Column.md)
  - [Swimlane](docs/Swimlane.md)
  - [Task](docs/Task.md)
+ - [TasksByColumn](docs/TasksByColumn.md)
 
 ## Documentation For Authorization
 

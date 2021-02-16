@@ -85,10 +85,12 @@ configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = pykanbanflow.DefaultApi(pykanbanflow.ApiClient(configuration))
+task_id = 'task_id_example' # str | The ID of the task to return
+include_position = true # bool | Include the task's position in the column/swimlane it is in (optional)
 
 try:
     # Returns a single task by ID
-    api_response = api_instance.get_task_by_id()
+    api_response = api_instance.get_task_by_id(task_id, include_position=include_position)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling DefaultApi->get_task_by_id: %s\n" % e)

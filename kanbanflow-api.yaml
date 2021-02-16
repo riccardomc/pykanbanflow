@@ -31,6 +31,19 @@ paths:
     get:
       summary: Returns a single task by ID
       operationId: getTaskById
+      parameters:
+        - in: path
+          name: taskId
+          schema:
+            type: string
+          required: true
+          description: The ID of the task to return
+        - in: query
+          name: includePosition
+          schema:
+            type: boolean
+          required: false
+          description: Include the task's position in the column/swimlane it is in
       responses:
         "200":
           description: OK

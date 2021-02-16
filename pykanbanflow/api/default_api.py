@@ -202,41 +202,45 @@ class DefaultApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def get_task_by_id(self, **kwargs):  # noqa: E501
+    def get_task_by_id(self, task_id, **kwargs):  # noqa: E501
         """Returns a single task by ID  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_task_by_id(async_req=True)
+        >>> thread = api.get_task_by_id(task_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
+        :param str task_id: The ID of the task to return (required)
+        :param bool include_position: Include the task's position in the column/swimlane it is in
         :return: Task
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.get_task_by_id_with_http_info(**kwargs)  # noqa: E501
+            return self.get_task_by_id_with_http_info(task_id, **kwargs)  # noqa: E501
         else:
-            (data) = self.get_task_by_id_with_http_info(**kwargs)  # noqa: E501
+            (data) = self.get_task_by_id_with_http_info(task_id, **kwargs)  # noqa: E501
             return data
 
-    def get_task_by_id_with_http_info(self, **kwargs):  # noqa: E501
+    def get_task_by_id_with_http_info(self, task_id, **kwargs):  # noqa: E501
         """Returns a single task by ID  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_task_by_id_with_http_info(async_req=True)
+        >>> thread = api.get_task_by_id_with_http_info(task_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
+        :param str task_id: The ID of the task to return (required)
+        :param bool include_position: Include the task's position in the column/swimlane it is in
         :return: Task
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = []  # noqa: E501
+        all_params = ['task_id', 'include_position']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -251,12 +255,20 @@ class DefaultApi(object):
                 )
             params[key] = val
         del params['kwargs']
+        # verify the required parameter 'task_id' is set
+        if ('task_id' not in params or
+                params['task_id'] is None):
+            raise ValueError("Missing the required parameter `task_id` when calling `get_task_by_id`")  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
+        if 'task_id' in params:
+            path_params['taskId'] = params['task_id']  # noqa: E501
 
         query_params = []
+        if 'include_position' in params:
+            query_params.append(('includePosition', params['include_position']))  # noqa: E501
 
         header_params = {}
 

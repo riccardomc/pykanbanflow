@@ -21,12 +21,23 @@ paths:
       summary: Returns the structure of the board belonging to the token.
       operationId: getBoard
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/Board"
+  /tasks/{taskId}:
+    get:
+      summary: Returns a single task by ID
+      operationId: getTaskById
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Task"
 
 components:
 
@@ -83,3 +94,16 @@ components:
           type: array
           items:
             $ref: "#/components/schemas/Color"
+    Task:
+      type: object
+      required:
+        - _id
+        - name
+        - columnId
+      properties:
+        _id:
+          type: string
+        name:
+          type: string
+        columnId:
+          type: string

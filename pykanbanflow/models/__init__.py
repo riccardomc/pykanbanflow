@@ -18,3 +18,4 @@ from pykanbanflow.models.board import Board
 from pykanbanflow.models.color import Color
 from pykanbanflow.models.column import Column
 from pykanbanflow.models.swimlane import Swimlane
+from pykanbanflow.models.task import Task

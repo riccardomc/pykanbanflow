@@ -64,6 +64,20 @@ try:
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling DefaultApi->get_board: %s\n" % e)
+# Configure HTTP basic authorization: BasicAuth
+configuration = pykanbanflow.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
+
+# create an instance of the API class
+api_instance = pykanbanflow.DefaultApi(pykanbanflow.ApiClient(configuration))
+
+try:
+    # Returns a single task by ID
+    api_response = api_instance.get_task_by_id()
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling DefaultApi->get_task_by_id: %s\n" % e)
 ```
 
 ## Documentation for API Endpoints
@@ -73,6 +87,7 @@ All URIs are relative to *https://kanbanflow.com/api/v1*
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *DefaultApi* | [**get_board**](docs/DefaultApi.md#get_board) | **GET** /board | Returns the structure of the board belonging to the token.
+*DefaultApi* | [**get_task_by_id**](docs/DefaultApi.md#get_task_by_id) | **GET** /tasks/{taskId} | Returns a single task by ID
 
 ## Documentation For Models
 
@@ -80,6 +95,7 @@ Class | Method | HTTP request | Description
  - [Color](docs/Color.md)
  - [Column](docs/Column.md)
  - [Swimlane](docs/Swimlane.md)
+ - [Task](docs/Task.md)
 
 ## Documentation For Authorization
 

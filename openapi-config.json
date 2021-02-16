@@ -1,0 +1,7 @@
+{
+    "packageName": "pykanbanflow",
+    "packageUrl": "https://github.com/riccardomc/pykanbanflow",
+    "packageVersion": "0.1",
+    "projectName": "pykanbanflow",
+    "useNose": true
+}

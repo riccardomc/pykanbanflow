@@ -1,0 +1,64 @@
+---
+openapi: 3.0.0
+info:
+  title: Kanbanflow API
+  description: Lean project management. Simplified.
+  version: 0.0.1
+  license:
+    name: MIT
+servers:
+  - url: https://kanbanflow.com/api/v1
+    description: Kanbanflow API server
+paths:
+  /board:
+    get:
+      summary: Returns the structure of the board belonging to the token.
+      operationId: getBoard
+      response:
+        '200':
+          description: A board object
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Board"
+components:
+  schemas:
+    Column:
+      type: object
+      properties:
+        name:
+          type: string
+        uniqueId:
+          type: string
+    Swimlane:
+      type: object
+      properties:
+        name:
+          type: string
+        uniqueId:
+          type: string
+    Color:
+      type: object
+      properties:
+        name:
+          type: string
+        value:
+          type: string
+        description:
+          type: string
+    Board:
+      type: object
+      properties:
+        _id:
+          type: string
+        name:
+          type: string
+        columns:
+          type: array
+          items: '#/components/schemas/Column'
+        swimlanes:
+          type: array
+          items: '#/components/schemas/Swimlane'
+        colors:
+          type: array
+          items: '#/components/schemas/Color'

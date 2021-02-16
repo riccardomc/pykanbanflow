@@ -41,7 +41,7 @@ class DefaultApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :return: None
+        :return: Board
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -61,7 +61,7 @@ class DefaultApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :return: None
+        :return: Board
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -94,6 +94,10 @@ class DefaultApi(object):
         local_var_files = {}
 
         body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
         # Authentication setting
         auth_settings = ['BasicAuth']  # noqa: E501
 
@@ -105,7 +109,7 @@ class DefaultApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type=None,  # noqa: E501
+            response_type='Board',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),

@@ -20,9 +20,9 @@ paths:
     get:
       summary: Returns the structure of the board belonging to the token.
       operationId: getBoard
-      response:
+      responses:
         '200':
-          description: A board object
+          description: OK
           content:
             application/json:
               schema:
@@ -61,6 +61,11 @@ components:
           type: string
     Board:
       type: object
+      required:
+        - _id
+        - name
+        - columns
+        - colors
       properties:
         _id:
           type: string
@@ -68,10 +73,13 @@ components:
           type: string
         columns:
           type: array
-          items: '#/components/schemas/Column'
+          items:
+            $ref: "#/components/schemas/Column"
         swimlanes:
           type: array
-          items: '#/components/schemas/Swimlane'
+          items:
+            $ref: "#/components/schemas/Swimlane"
         colors:
           type: array
-          items: '#/components/schemas/Color'
+          items:
+            $ref: "#/components/schemas/Color"

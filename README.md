@@ -60,7 +60,8 @@ api_instance = pykanbanflow.DefaultApi(pykanbanflow.ApiClient(configuration))
 
 try:
     # Returns the structure of the board belonging to the token.
-    api_instance.get_board()
+    api_response = api_instance.get_board()
+    pprint(api_response)
 except ApiException as e:
     print("Exception when calling DefaultApi->get_board: %s\n" % e)
 ```

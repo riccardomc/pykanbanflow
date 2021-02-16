@@ -7,7 +7,7 @@ Method | HTTP request | Description
 [**get_board**](DefaultApi.md#get_board) | **GET** /board | Returns the structure of the board belonging to the token.
 
 # **get_board**
-> get_board()
+> Board get_board()
 
 Returns the structure of the board belonging to the token.
 
@@ -28,7 +28,8 @@ api_instance = pykanbanflow.DefaultApi(pykanbanflow.ApiClient(configuration))
 
 try:
     # Returns the structure of the board belonging to the token.
-    api_instance.get_board()
+    api_response = api_instance.get_board()
+    pprint(api_response)
 except ApiException as e:
     print("Exception when calling DefaultApi->get_board: %s\n" % e)
 ```
@@ -38,7 +39,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-void (empty response body)
+[**Board**](Board.md)
 
 ### Authorization
 
@@ -47,7 +48,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

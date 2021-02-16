@@ -30,9 +30,9 @@ class Board(object):
     swagger_types = {
         'id': 'str',
         'name': 'str',
-        'columns': 'list',
-        'swimlanes': 'list',
-        'colors': 'list'
+        'columns': 'list[Column]',
+        'swimlanes': 'list[Swimlane]',
+        'colors': 'list[Color]'
     }
 
     attribute_map = {
@@ -51,16 +51,12 @@ class Board(object):
         self._swimlanes = None
         self._colors = None
         self.discriminator = None
-        if id is not None:
-            self.id = id
-        if name is not None:
-            self.name = name
-        if columns is not None:
-            self.columns = columns
+        self.id = id
+        self.name = name
+        self.columns = columns
         if swimlanes is not None:
             self.swimlanes = swimlanes
-        if colors is not None:
-            self.colors = colors
+        self.colors = colors
 
     @property
     def id(self):
@@ -80,6 +76,8 @@ class Board(object):
         :param id: The id of this Board.  # noqa: E501
         :type: str
         """
+        if id is None:
+            raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
 
         self._id = id
 
@@ -101,6 +99,8 @@ class Board(object):
         :param name: The name of this Board.  # noqa: E501
         :type: str
         """
+        if name is None:
+            raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
 
         self._name = name
 
@@ -110,7 +110,7 @@ class Board(object):
 
 
         :return: The columns of this Board.  # noqa: E501
-        :rtype: list
+        :rtype: list[Column]
         """
         return self._columns
 
@@ -120,8 +120,10 @@ class Board(object):
 
 
         :param columns: The columns of this Board.  # noqa: E501
-        :type: list
+        :type: list[Column]
         """
+        if columns is None:
+            raise ValueError("Invalid value for `columns`, must not be `None`")  # noqa: E501
 
         self._columns = columns
 
@@ -131,7 +133,7 @@ class Board(object):
 
 
         :return: The swimlanes of this Board.  # noqa: E501
-        :rtype: list
+        :rtype: list[Swimlane]
         """
         return self._swimlanes
 
@@ -141,7 +143,7 @@ class Board(object):
 
 
         :param swimlanes: The swimlanes of this Board.  # noqa: E501
-        :type: list
+        :type: list[Swimlane]
         """
 
         self._swimlanes = swimlanes
@@ -152,7 +154,7 @@ class Board(object):
 
 
         :return: The colors of this Board.  # noqa: E501
-        :rtype: list
+        :rtype: list[Color]
         """
         return self._colors
 
@@ -162,8 +164,10 @@ class Board(object):
 
 
         :param colors: The colors of this Board.  # noqa: E501
-        :type: list
+        :type: list[Color]
         """
+        if colors is None:
+            raise ValueError("Invalid value for `colors`, must not be `None`")  # noqa: E501
 
         self._colors = colors
 

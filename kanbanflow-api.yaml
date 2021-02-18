@@ -43,7 +43,7 @@ paths:
           schema:
             type: boolean
           required: false
-          description: Include the task's position in the column/swimlane it is in
+          description: Include the task's position in the column/swimlane
       responses:
         "200":
           description: OK
@@ -64,6 +64,23 @@ paths:
                 type: array
                 items:
                   $ref: "#/components/schemas/TasksByColumn"
+    post:
+      summary: Creates a new task
+      operationId: createTask
+      requestBody:
+        description: the new task spec
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Task"
+      responses:
+        "200":
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CreateTaskResponse"
 
 components:
 
@@ -124,9 +141,7 @@ components:
     Task:
       type: object
       required:
-        - _id
         - name
-        - columnId
       properties:
         _id:
           type: string
@@ -134,10 +149,12 @@ components:
           type: string
         columnId:
           type: string
+        columnIndex:
+          type: integer
         swimlaneId:
           type: string
         position:
-          type: integer
+          type: string
         description:
           type: string
         color:
@@ -228,4 +245,10 @@ components:
       type: object
       properties:
         userId:
+          type: string
+
+    CreateTaskResponse:
+      type: object
+      properties:
+        taskId:
           type: string

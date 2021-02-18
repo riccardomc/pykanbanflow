@@ -3,11 +3,12 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **str** |  | 
+**id** | **str** |  | [optional] 
 **name** | **str** |  | 
-**column_id** | **str** |  | 
+**column_id** | **str** |  | [optional] 
+**column_index** | **int** |  | [optional] 
 **swimlane_id** | **str** |  | [optional] 
-**position** | **int** |  | [optional] 
+**position** | **str** |  | [optional] 
 **description** | **str** |  | [optional] 
 **color** | **str** |  | [optional] 
 **number** | **str** |  | [optional] 

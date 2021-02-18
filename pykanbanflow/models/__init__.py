@@ -17,6 +17,7 @@ from __future__ import absolute_import
 from pykanbanflow.models.board import Board
 from pykanbanflow.models.color import Color
 from pykanbanflow.models.column import Column
+from pykanbanflow.models.create_task_response import CreateTaskResponse
 from pykanbanflow.models.swimlane import Swimlane
 from pykanbanflow.models.task import Task
 from pykanbanflow.models.task_collaborator import TaskCollaborator

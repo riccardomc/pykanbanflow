@@ -57,6 +57,21 @@ configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = pykanbanflow.DefaultApi(pykanbanflow.ApiClient(configuration))
+body = pykanbanflow.Task() # Task | the new task spec
+
+try:
+    # Creates a new task
+    api_response = api_instance.create_task(body)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling DefaultApi->create_task: %s\n" % e)
+# Configure HTTP basic authorization: BasicAuth
+configuration = pykanbanflow.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
+
+# create an instance of the API class
+api_instance = pykanbanflow.DefaultApi(pykanbanflow.ApiClient(configuration))
 
 try:
     # Return all tasks on a board
@@ -86,7 +101,7 @@ configuration.password = 'YOUR_PASSWORD'
 # create an instance of the API class
 api_instance = pykanbanflow.DefaultApi(pykanbanflow.ApiClient(configuration))
 task_id = 'task_id_example' # str | The ID of the task to return
-include_position = true # bool | Include the task's position in the column/swimlane it is in (optional)
+include_position = true # bool | Include the task's position in the column/swimlane (optional)
 
 try:
     # Returns a single task by ID
@@ -102,6 +117,7 @@ All URIs are relative to *https://kanbanflow.com/api/v1*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*DefaultApi* | [**create_task**](docs/DefaultApi.md#create_task) | **POST** /tasks | Creates a new task
 *DefaultApi* | [**get_all_tasks**](docs/DefaultApi.md#get_all_tasks) | **GET** /tasks | Return all tasks on a board
 *DefaultApi* | [**get_board**](docs/DefaultApi.md#get_board) | **GET** /board | Returns the structure of the board belonging to the token.
 *DefaultApi* | [**get_task_by_id**](docs/DefaultApi.md#get_task_by_id) | **GET** /tasks/{taskId} | Returns a single task by ID
@@ -111,6 +127,7 @@ Class | Method | HTTP request | Description
  - [Board](docs/Board.md)
  - [Color](docs/Color.md)
  - [Column](docs/Column.md)
+ - [CreateTaskResponse](docs/CreateTaskResponse.md)
  - [Swimlane](docs/Swimlane.md)
  - [Task](docs/Task.md)
  - [TaskCollaborator](docs/TaskCollaborator.md)

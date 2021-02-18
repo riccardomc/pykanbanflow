@@ -31,8 +31,9 @@ class Task(object):
         'id': 'str',
         'name': 'str',
         'column_id': 'str',
+        'column_index': 'int',
         'swimlane_id': 'str',
-        'position': 'int',
+        'position': 'str',
         'description': 'str',
         'color': 'str',
         'number': 'str',
@@ -51,6 +52,7 @@ class Task(object):
         'id': '_id',
         'name': 'name',
         'column_id': 'columnId',
+        'column_index': 'columnIndex',
         'swimlane_id': 'swimlaneId',
         'position': 'position',
         'description': 'description',
@@ -67,11 +69,12 @@ class Task(object):
         'collaborators': 'collaborators'
     }
 
-    def __init__(self, id=None, name=None, column_id=None, swimlane_id=None, position=None, description=None, color=None, number=None, responsible_user_id=None, total_seconds_spent=None, total_seconds_estimate=None, points_estimate=None, grouping_date=None, dates=None, sub_tasks=None, labels=None, collaborators=None):  # noqa: E501
+    def __init__(self, id=None, name=None, column_id=None, column_index=None, swimlane_id=None, position=None, description=None, color=None, number=None, responsible_user_id=None, total_seconds_spent=None, total_seconds_estimate=None, points_estimate=None, grouping_date=None, dates=None, sub_tasks=None, labels=None, collaborators=None):  # noqa: E501
         """Task - a model defined in Swagger"""  # noqa: E501
         self._id = None
         self._name = None
         self._column_id = None
+        self._column_index = None
         self._swimlane_id = None
         self._position = None
         self._description = None
@@ -87,9 +90,13 @@ class Task(object):
         self._labels = None
         self._collaborators = None
         self.discriminator = None
-        self.id = id
+        if id is not None:
+            self.id = id
         self.name = name
-        self.column_id = column_id
+        if column_id is not None:
+            self.column_id = column_id
+        if column_index is not None:
+            self.column_index = column_index
         if swimlane_id is not None:
             self.swimlane_id = swimlane_id
         if position is not None:
@@ -137,8 +144,6 @@ class Task(object):
         :param id: The id of this Task.  # noqa: E501
         :type: str
         """
-        if id is None:
-            raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
 
         self._id = id
 
@@ -183,10 +188,29 @@ class Task(object):
         :param column_id: The column_id of this Task.  # noqa: E501
         :type: str
         """
-        if column_id is None:
-            raise ValueError("Invalid value for `column_id`, must not be `None`")  # noqa: E501
 
         self._column_id = column_id
+
+    @property
+    def column_index(self):
+        """Gets the column_index of this Task.  # noqa: E501
+
+
+        :return: The column_index of this Task.  # noqa: E501
+        :rtype: int
+        """
+        return self._column_index
+
+    @column_index.setter
+    def column_index(self, column_index):
+        """Sets the column_index of this Task.
+
+
+        :param column_index: The column_index of this Task.  # noqa: E501
+        :type: int
+        """
+
+        self._column_index = column_index
 
     @property
     def swimlane_id(self):
@@ -215,7 +239,7 @@ class Task(object):
 
 
         :return: The position of this Task.  # noqa: E501
-        :rtype: int
+        :rtype: str
         """
         return self._position
 
@@ -225,7 +249,7 @@ class Task(object):
 
 
         :param position: The position of this Task.  # noqa: E501
-        :type: int
+        :type: str
         """
 
         self._position = position

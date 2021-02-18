@@ -113,6 +113,10 @@ Class | Method | HTTP request | Description
  - [Column](docs/Column.md)
  - [Swimlane](docs/Swimlane.md)
  - [Task](docs/Task.md)
+ - [TaskCollaborator](docs/TaskCollaborator.md)
+ - [TaskDate](docs/TaskDate.md)
+ - [TaskLabel](docs/TaskLabel.md)
+ - [TaskSubTask](docs/TaskSubTask.md)
  - [TasksByColumn](docs/TasksByColumn.md)
 
 ## Documentation For Authorization

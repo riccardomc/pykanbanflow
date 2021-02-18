@@ -154,6 +154,22 @@ components:
           type: float
         groupingDate:
           type: string
+        dates:
+          type: array
+          items:
+            $ref: "#/components/schemas/TaskDate"
+        subTasks:
+          type: array
+          items:
+            $ref: "#/components/schemas/TaskSubTask"
+        labels:
+          type: array
+          items:
+            $ref: "#/components/schemas/TaskLabel"
+        collaborators:
+          type: array
+          items:
+            $ref: "#/components/schemas/TaskCollaborator"
 
     TasksByColumn:
       type: object
@@ -173,3 +189,43 @@ components:
           type: array
           items:
             $ref: "#/components/schemas/Task"
+
+    TaskDate:
+      type: object
+      properties:
+        status:
+          type: string
+        dateType:
+          type: string
+        dueTimestamp:
+          type: string
+        dueTimestampLocal:
+          type: string
+        targetColumnId:
+          type: string
+
+    TaskSubTask:
+      type: object
+      properties:
+        name:
+          type: string
+        finished:
+          type: boolean
+        dueDateTimestamp:
+          type: string
+        dueDateTimestampLocal:
+          type: string
+
+    TaskLabel:
+      type: object
+      properties:
+        name:
+          type: string
+        pinned:
+          type: boolean
+
+    TaskCollaborator:
+      type: object
+      properties:
+        userId:
+          type: string

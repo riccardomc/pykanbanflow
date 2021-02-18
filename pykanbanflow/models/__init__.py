@@ -19,4 +19,8 @@ from pykanbanflow.models.color import Color
 from pykanbanflow.models.column import Column
 from pykanbanflow.models.swimlane import Swimlane
 from pykanbanflow.models.task import Task
+from pykanbanflow.models.task_collaborator import TaskCollaborator
+from pykanbanflow.models.task_date import TaskDate
+from pykanbanflow.models.task_label import TaskLabel
+from pykanbanflow.models.task_sub_task import TaskSubTask
 from pykanbanflow.models.tasks_by_column import TasksByColumn

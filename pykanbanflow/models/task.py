@@ -40,7 +40,11 @@ class Task(object):
         'total_seconds_spent': 'int',
         'total_seconds_estimate': 'int',
         'points_estimate': 'float',
-        'grouping_date': 'str'
+        'grouping_date': 'str',
+        'dates': 'list[TaskDate]',
+        'sub_tasks': 'list[TaskSubTask]',
+        'labels': 'list[TaskLabel]',
+        'collaborators': 'list[TaskCollaborator]'
     }
 
     attribute_map = {
@@ -56,10 +60,14 @@ class Task(object):
         'total_seconds_spent': 'totalSecondsSpent',
         'total_seconds_estimate': 'totalSecondsEstimate',
         'points_estimate': 'pointsEstimate',
-        'grouping_date': 'groupingDate'
+        'grouping_date': 'groupingDate',
+        'dates': 'dates',
+        'sub_tasks': 'subTasks',
+        'labels': 'labels',
+        'collaborators': 'collaborators'
     }
 
-    def __init__(self, id=None, name=None, column_id=None, swimlane_id=None, position=None, description=None, color=None, number=None, responsible_user_id=None, total_seconds_spent=None, total_seconds_estimate=None, points_estimate=None, grouping_date=None):  # noqa: E501
+    def __init__(self, id=None, name=None, column_id=None, swimlane_id=None, position=None, description=None, color=None, number=None, responsible_user_id=None, total_seconds_spent=None, total_seconds_estimate=None, points_estimate=None, grouping_date=None, dates=None, sub_tasks=None, labels=None, collaborators=None):  # noqa: E501
         """Task - a model defined in Swagger"""  # noqa: E501
         self._id = None
         self._name = None
@@ -74,6 +82,10 @@ class Task(object):
         self._total_seconds_estimate = None
         self._points_estimate = None
         self._grouping_date = None
+        self._dates = None
+        self._sub_tasks = None
+        self._labels = None
+        self._collaborators = None
         self.discriminator = None
         self.id = id
         self.name = name
@@ -98,6 +110,14 @@ class Task(object):
             self.points_estimate = points_estimate
         if grouping_date is not None:
             self.grouping_date = grouping_date
+        if dates is not None:
+            self.dates = dates
+        if sub_tasks is not None:
+            self.sub_tasks = sub_tasks
+        if labels is not None:
+            self.labels = labels
+        if collaborators is not None:
+            self.collaborators = collaborators
 
     @property
     def id(self):
@@ -377,6 +397,90 @@ class Task(object):
         """
 
         self._grouping_date = grouping_date
+
+    @property
+    def dates(self):
+        """Gets the dates of this Task.  # noqa: E501
+
+
+        :return: The dates of this Task.  # noqa: E501
+        :rtype: list[TaskDate]
+        """
+        return self._dates
+
+    @dates.setter
+    def dates(self, dates):
+        """Sets the dates of this Task.
+
+
+        :param dates: The dates of this Task.  # noqa: E501
+        :type: list[TaskDate]
+        """
+
+        self._dates = dates
+
+    @property
+    def sub_tasks(self):
+        """Gets the sub_tasks of this Task.  # noqa: E501
+
+
+        :return: The sub_tasks of this Task.  # noqa: E501
+        :rtype: list[TaskSubTask]
+        """
+        return self._sub_tasks
+
+    @sub_tasks.setter
+    def sub_tasks(self, sub_tasks):
+        """Sets the sub_tasks of this Task.
+
+
+        :param sub_tasks: The sub_tasks of this Task.  # noqa: E501
+        :type: list[TaskSubTask]
+        """
+
+        self._sub_tasks = sub_tasks
+
+    @property
+    def labels(self):
+        """Gets the labels of this Task.  # noqa: E501
+
+
+        :return: The labels of this Task.  # noqa: E501
+        :rtype: list[TaskLabel]
+        """
+        return self._labels
+
+    @labels.setter
+    def labels(self, labels):
+        """Sets the labels of this Task.
+
+
+        :param labels: The labels of this Task.  # noqa: E501
+        :type: list[TaskLabel]
+        """
+
+        self._labels = labels
+
+    @property
+    def collaborators(self):
+        """Gets the collaborators of this Task.  # noqa: E501
+
+
+        :return: The collaborators of this Task.  # noqa: E501
+        :rtype: list[TaskCollaborator]
+        """
+        return self._collaborators
+
+    @collaborators.setter
+    def collaborators(self, collaborators):
+        """Sets the collaborators of this Task.
+
+
+        :param collaborators: The collaborators of this Task.  # noqa: E501
+        :type: list[TaskCollaborator]
+        """
+
+        self._collaborators = collaborators
 
     def to_dict(self):
         """Returns the model properties as a dict"""
